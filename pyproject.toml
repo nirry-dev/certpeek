@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "certpeek"
+version = "0.1.0"
+description = "Inspect the TLS certificate a host serves — expiry, SANs, issuer, chain trust and protocol — including certificates that don't validate. Pure standard library."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Nirry", email = "labs@nirry.net" }]
+keywords = [
+    "tls",
+    "ssl",
+    "certificate",
+    "x509",
+    "security",
+    "recon",
+    "expiry",
+    "monitoring",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: System :: Networking :: Monitoring",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://nirry.net"
+Source = "https://github.com/nirry-dev/certpeek"
+Issues = "https://github.com/nirry-dev/certpeek/issues"
+
+[project.scripts]
+certpeek = "certpeek.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["certpeek"]
+
+[tool.hatch.build.targets.sdist]
+include = ["certpeek", "tests", "README.md", "LICENSE", "CHANGELOG.md"]
